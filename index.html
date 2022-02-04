@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="SAP/TemplateData/style.css">
+    <script src="SAP/TemplateData/UnityProgress.js"></script>
+    <script src="SAP/Build/android-41.loader.js"></script>
+
+		<link rel="stylesheet"type="text/css" href=".css"/>
+    <title>CHS Study Space</title>
+	<style>
+
+	</style>
+</head>
+
+<body>
+    <div id="custom-logo"></div>
+
+    <div id="custom-loader">
+        <div class="fill"></div>
+        <div class="label"></div>
+        <div class="help">
+            Might not work. Use a Unity supporting browser.
+        </div>
+    </div>
+
+	<footer>
+    <div id="gameContainer">
+        <canvas id="unity-canvas" align = "center" style="width: 768px; height: 480px"></canvas>
+        <script>
+            var config = {
+				dataUrl: "SAP/Build/android-41.data.unityweb",
+				frameworkUrl: "SAP/Build/android-41.framework.js.unityweb",
+				codeUrl: "SAP/Build/android-41.wasm.unityweb",
+				companyName: "Team Wood",
+				productName: "Super Auto Pets",
+				productVersion: "41",
+            };
+            var canvas = document.querySelector("#unity-canvas");
+            var loader = document.querySelector("#custom-loader");
+            var logo = document.querySelector("#custom-logo");
+            createUnityInstance(canvas, config, (progress) => UnityProgress(progress, loader, logo)).then(function(instance) {
+                var canvas = instance.Module.canvas;
+                var container = canvas.parentElement;
+            });
+        </script>
+    </div>
+	</footer>
+
+</body>
+
+
+</html>
