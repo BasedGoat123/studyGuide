@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--<link rel="stylesheet" href="SAP/TemplateData/style.css">-->
+    <script src="SAP/TemplateData/UnityProgress.js"></script>
+    <script src="SAP/Build/android-41.loader.js"></script>
+
+		<link rel="stylesheet"type="text/css" href=".css"/>
+    <title>CHS Study Space</title>
+	
+	<style>
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+li {
+  float: right;
+}
+
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  margin: 0px 16px;
+  text-decoration: none;
+}
+
+li a:hover{
+	 background-color: gray;
+}
+	</style>
+</head>
+
+<body>
+	<nav>
+	<ul>
+		<li><a style="float:left" href="#news">News</a></li>
+		<li><a href="#news">News</a></li>
+		<li><a href="#contact">Contact</a></li>
+		<li style="float:left"><a href="#contact">Contact</a></li>
+	</ul>
+	
+	</nav>
+
+    <div id="custom-logo"></div>
+
+    <div id="custom-loader">
+        <div class="fill"></div>
+        <div class="label"></div>
+        <div class="help">
+            Might not work. Use a Unity supporting browser.
+        </div>
+    </div>
+
+	<footer style="position: relative; bottom: 5px;">
+    <div id="gameContainer">
+        <canvas id="unity-canvas" align = "center" style="width: 768px; height: 480px"></canvas>
+        <script>
+            var config = {
+				dataUrl: "SAP/Build/android-41.data.unityweb",
+				frameworkUrl: "SAP/Build/android-41.framework.js.unityweb",
+				codeUrl: "SAP/Build/android-41.wasm.unityweb",
+				companyName: "Team Wood",
+				productName: "Super Auto Pets",
+				productVersion: "41",
+            };
+            var canvas = document.querySelector("#unity-canvas");
+            var loader = document.querySelector("#custom-loader");
+            var logo = document.querySelector("#custom-logo");
+            createUnityInstance(canvas, config, (progress) => UnityProgress(progress, loader, logo)).then(function(instance) {
+                var canvas = instance.Module.canvas;
+                var container = canvas.parentElement;
+            });
+        </script>
+    </div>
+	</footer>
+
+</body>
+
+
+</html>
